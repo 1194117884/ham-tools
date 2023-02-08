@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const MyHomePage(title: '首页Demo'),
+      home: const MyHomePage(title: '首页'),
     );
   }
 }
