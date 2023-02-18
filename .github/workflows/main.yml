@@ -9,7 +9,7 @@ on:
      - "main"
 
 jobs:
-  build_dart:
+  flutter_build_apk:
     runs-on: ubuntu-latest
     
     steps:
@@ -34,7 +34,7 @@ jobs:
         run: flutter test
 
       - name: Build Apk
-        run: flutter build apk
+        run: flutter build apk --release
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
