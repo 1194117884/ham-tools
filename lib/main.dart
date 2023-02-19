@@ -35,9 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('首页'),
+    Text('Home'),
     ExaminationWidget(),
-    Text('个人中心'),
+    Text('UserProfiles'),
   ];
 
   void _onItemTapped(int index) {

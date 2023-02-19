@@ -11,25 +11,25 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ham_tools/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    expect(find.text('Index 0: 首页'), findsOneWidget);
+    expect(find.byIcon(Icons.home), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.business));
     await tester.pump();
 
-    expect(find.text('Index 1: 考试'), findsOneWidget);
+    expect(find.text('A类'), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.person));
     await tester.pump();
 
-    expect(find.text('Index 2: 个人中心'), findsOneWidget);
+    expect(find.text('UserProfiles'), findsWidgets);
 
     await tester.tap(find.byIcon(Icons.home));
     await tester.pump();
 
-    expect(find.text('Index 0: 首页'), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
   });
 }
