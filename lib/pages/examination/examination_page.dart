@@ -63,7 +63,6 @@ class DashboardPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Table(
-      border: TableBorder.all(),
       columnWidths: const <int, TableColumnWidth>{
         0: FlexColumnWidth(0.5),
         1: FlexColumnWidth(1),
@@ -80,7 +79,7 @@ class DashboardPanel extends StatelessWidget {
                     margin: const EdgeInsets.all(5),
                     height: 120,
                     child: const Tab(
-                      icon: Icon(size: 30, Icons.history),
+                      icon: Icon(size: 30, Icons.book_outlined),
                       text: "错题",
                     ),
                   ),
@@ -88,7 +87,7 @@ class DashboardPanel extends StatelessWidget {
                     margin: const EdgeInsets.all(5),
                     height: 120,
                     child: const Tab(
-                      icon: Icon(size: 30, Icons.history),
+                      icon: Icon(size: 30, Icons.radar_sharp),
                       text: "专项",
                     ),
                   ),
@@ -107,7 +106,7 @@ class DashboardPanel extends StatelessWidget {
                     margin: const EdgeInsets.all(5),
                     height: 120,
                     child: const Tab(
-                      icon: Icon(size: 30, Icons.history),
+                      icon: Icon(size: 30, Icons.star, color: Colors.blue),
                       text: "收藏",
                     ),
                   ),
@@ -115,7 +114,7 @@ class DashboardPanel extends StatelessWidget {
                     margin: const EdgeInsets.all(5),
                     height: 120,
                     child: const Tab(
-                      icon: Icon(size: 30, Icons.history),
+                      icon: Icon(size: 30, Icons.image),
                       text: "图标",
                     ),
                   ),
