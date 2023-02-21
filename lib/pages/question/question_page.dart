@@ -25,11 +25,11 @@ class QuestionPage extends GetView<QuestionController> {
               controller.changeModel(index);
             },
             borderRadius: const BorderRadius.all(Radius.circular(3)),
-            borderColor: Color.fromARGB(250, 51, 51, 51),
-            selectedBorderColor: Color.fromARGB(250, 51, 51, 51),
+            borderColor: const Color.fromARGB(250, 51, 51, 51),
+            selectedBorderColor: const Color.fromARGB(250, 51, 51, 51),
             selectedColor: Colors.white,
             color: Colors.black,
-            fillColor: Color.fromARGB(250, 51, 51, 51),
+            fillColor: const Color.fromARGB(250, 51, 51, 51),
             constraints: const BoxConstraints(
               minHeight: 25.0,
               minWidth: 75.0,
@@ -132,7 +132,7 @@ class QuestionPage extends GetView<QuestionController> {
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: GridView.builder(
                   controller: sc,
@@ -152,8 +152,77 @@ class QuestionPage extends GetView<QuestionController> {
               ),
             ],
           ),
-          body: const Center(
-            child: Text('123123123'),
+          body: PageView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(20),
+                child: Container(
+                  margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                  child: Stack(
+                    alignment: Alignment.topLeft,
+                    children: <Widget>[
+                      Text(
+                        '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w300),
+                        strutStyle: StrutStyle(leading: 1),
+                      ),
+                      Positioned(
+                        top: 4,
+                        left: 0,
+                        child: Container(
+                          padding: EdgeInsets.fromLTRB(7, 4, 7, 4),
+                          decoration: BoxDecoration(
+                            color: Color(0XFF0676FC),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(5),
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(5),
+                                topRight: Radius.circular(5)),
+                          ),
+                          child: Text(
+                            '单选',
+                            style: TextStyle(fontSize: 11, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      Card(
+                        shape: CircleBorder(),
+                        elevation: 5.0,
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 25,
+                          height: 25,
+                          child: Text(
+                            'A',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                                fontSize: 24, fontWeight: FontWeight.w300),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                color: Colors.yellow,
+                child: Text('asdf'),
+              ),
+              Container(
+                color: Colors.pink,
+                child: Text('12314'),
+              ),
+            ],
           ),
         ),
       );
