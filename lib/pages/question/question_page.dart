@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ham_tools/pages/question/question_controller.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class QuestionPage extends GetView<QuestionController> {
   const QuestionPage({super.key});
@@ -47,54 +48,112 @@ class QuestionPage extends GetView<QuestionController> {
             ),
           ],
         ),
-        body: const Center(
-          child: Text('asdfasdf'),
-        ),
-        bottomSheet: BottomAppBar(
-          child: SizedBox(
-            height: 55.0,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: controller.collect,
-                      icon: controller.collectIcon,
-                    ),
-                    const Text("收藏"),
-                  ],
+        body: SlidingUpPanel(
+          maxHeight: MediaQuery.of(context).size.height * 0.7,
+          minHeight: MediaQuery.of(context).size.height * 0.1,
+          borderRadius: BorderRadius.circular(24),
+          backdropOpacity: 0.2,
+          backdropEnabled: true,
+          panelBuilder: (ScrollController sc) => Column(
+            children: [
+              const Icon(Icons.drag_handle),
+              Padding(
+                padding: EdgeInsets.fromLTRB(
+                  10,
+                  MediaQuery.of(context).size.height * 0.02,
+                  10,
+                  MediaQuery.of(context).size.height * 0.03,
                 ),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    GestureDetector(
+                      onTap: controller.collect,
+                      child: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          IconButton(
+                            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                            constraints: const BoxConstraints(),
+                            color: Colors.blue,
+                            iconSize: 20,
+                            onPressed: () => {},
+                            icon: controller.collectIcon,
+                          ),
+                          const Text('收藏'),
+                        ],
+                      ),
+                    ),
                     Wrap(
                       crossAxisAlignment: WrapCrossAlignment.center,
-                      children: const [
-                        Icon(Icons.check, color: Colors.blue),
-                        Text('248')
+                      children: [
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.close,
+                              color: Colors.red,
+                              size: 18,
+                            ),
+                            Text('1112'),
+                          ],
+                        ),
+                        Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.center,
+                          children: const [
+                            Icon(
+                              Icons.check,
+                              color: Colors.blue,
+                              size: 18,
+                            ),
+                            Text('1248'),
+                          ],
+                        ),
                       ],
                     ),
-                    Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: const [
-                        Icon(Icons.close, color: Colors.red),
-                        Text('12')
-                      ],
+                    GestureDetector(
+                      child: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: const [
+                          Icon(
+                            Icons.view_module_outlined,
+                            size: 20,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
+                            child: Text(
+                              '1/365',
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: const [
-                    Icon(Icons.view_module_outlined),
-                    Text('365')
-                  ],
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.6,
+                child: GridView.builder(
+                  controller: sc,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 6,
+                  ),
+                  itemCount: 1300,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      shadowColor: Colors.blue,
+                      shape: const CircleBorder(),
+                      child: Center(child: Text('$index')),
+                    );
+                  },
                 ),
-              ],
-            ),
+              ),
+            ],
+          ),
+          body: const Center(
+            child: Text('123123123'),
           ),
         ),
       );
