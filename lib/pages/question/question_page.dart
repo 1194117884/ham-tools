@@ -49,20 +49,19 @@ class QuestionPage extends GetView<QuestionController> {
           ],
         ),
         body: SlidingUpPanel(
+          backdropOpacity: 0.3,
+          backdropEnabled: true,
+          borderRadius: BorderRadius.circular(24),
           maxHeight: MediaQuery.of(context).size.height * 0.7,
           minHeight: MediaQuery.of(context).size.height * 0.1,
-          borderRadius: BorderRadius.circular(24),
-          backdropOpacity: 0.2,
-          backdropEnabled: true,
           panelBuilder: (ScrollController sc) => Column(
             children: [
-              const Icon(Icons.drag_handle),
               Padding(
                 padding: EdgeInsets.fromLTRB(
                   10,
-                  MediaQuery.of(context).size.height * 0.02,
+                  MediaQuery.of(context).size.height * 0.040,
                   10,
-                  MediaQuery.of(context).size.height * 0.03,
+                  MediaQuery.of(context).size.height * 0.035,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -155,72 +154,515 @@ class QuestionPage extends GetView<QuestionController> {
           body: PageView(
             scrollDirection: Axis.horizontal,
             children: [
-              Container(
-                padding: const EdgeInsets.all(20),
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: Stack(
-                    alignment: Alignment.topLeft,
-                    children: <Widget>[
-                      Text(
-                        '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RichText(
+                      text: const TextSpan(
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.w300),
-                        strutStyle: StrutStyle(leading: 1),
-                      ),
-                      Positioned(
-                        top: 4,
-                        left: 0,
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(7, 4, 7, 4),
-                          decoration: BoxDecoration(
-                            color: Color(0XFF0676FC),
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(5),
-                                bottomLeft: Radius.circular(0),
-                                bottomRight: Radius.circular(5),
-                                topRight: Radius.circular(5)),
-                          ),
-                          child: Text(
-                            '单选',
-                            style: TextStyle(fontSize: 11, color: Colors.white),
-                          ),
+                          fontSize: 22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
                         ),
-                      ),
-                      Card(
-                        shape: CircleBorder(),
-                        elevation: 5.0,
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 25,
-                          height: 25,
-                          child: Text(
-                            'A',
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '【LK0003】',
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w300),
+                              fontSize: 22,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          color: Colors.blue,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 32,
+                            height: 32,
+                            child: const Text(
+                              'A',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
+                        const Expanded(
                           child: Text(
                             '不正确不正确不正确不正确不正确不正确不正确不正确',
                             style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.w300),
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'B',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'C',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'D',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                color: Colors.yellow,
-                child: Text('asdf'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RichText(
+                      text: const TextSpan(
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '【LK0003】',
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                            '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          color: Colors.blue,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 32,
+                            height: 32,
+                            child: const Text(
+                              'A',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'B',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'C',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'D',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
-              Container(
-                color: Colors.pink,
-                child: Text('12314'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: RichText(
+                      text: const TextSpan(
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w300,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '【LK0003】',
+                            style: TextStyle(
+                              fontSize: 22,
+                              color: Colors.blue,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                            '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          color: Colors.blue,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 32,
+                            height: 32,
+                            child: const Text(
+                              'A',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'B',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'C',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '不正确不正确不正确不正确不正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Card(
+                          margin: const EdgeInsets.all(10.0),
+                          shape: const CircleBorder(),
+                          elevation: 5.0,
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 30,
+                            height: 30,
+                            child: const Text(
+                              'D',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Expanded(
+                          child: Text(
+                            '正确不正确不正确不正确',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

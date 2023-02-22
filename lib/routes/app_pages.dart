@@ -7,6 +7,8 @@ import 'package:ham_tools/pages/root/root_page.dart';
 import 'package:ham_tools/pages/user/user_page.dart';
 import 'package:ham_tools/routes/app_routers.dart';
 
+import '../pages/question/question_bind.dart';
+
 class AppPages {
   static var list = [
     GetPage(
@@ -29,6 +31,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.question,
       page: () => const QuestionPage(),
+      binding: QuestionBinding(),
     ),
   ];
 }
