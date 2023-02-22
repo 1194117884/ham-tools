@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ham_tools/pages/question/question_controller.dart';
+import 'package:ham_tools/routes/app_routers.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class QuestionPage extends GetView<QuestionController> {
@@ -44,7 +45,9 @@ class QuestionPage extends GetView<QuestionController> {
           actions: [
             IconButton(
               icon: const Icon(Icons.history),
-              onPressed: Get.back,
+              onPressed: () => {
+                Get.to(AppRoutes.login),
+              },
             ),
           ],
         ),
@@ -348,7 +351,7 @@ class QuestionPage extends GetView<QuestionController> {
                           ),
                           TextSpan(
                             text:
-                            '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                                '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
                           ),
                         ],
                       ),
@@ -518,7 +521,7 @@ class QuestionPage extends GetView<QuestionController> {
                           ),
                           TextSpan(
                             text:
-                            '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
+                                '驾驶机动车与行人之间发生交通事故造成人身伤亡、财产损失的，机动车一方没有过错，不承担赔偿责任。',
                           ),
                         ],
                       ),

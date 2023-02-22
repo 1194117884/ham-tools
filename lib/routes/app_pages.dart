@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:ham_tools/pages/examination/examination_page.dart';
 import 'package:ham_tools/pages/home/home_page.dart';
+import 'package:ham_tools/pages/login/login_page.dart';
 import 'package:ham_tools/pages/question/question_page.dart';
 import 'package:ham_tools/pages/root/root_bind.dart';
 import 'package:ham_tools/pages/root/root_page.dart';
@@ -32,6 +33,10 @@ class AppPages {
       name: AppRoutes.question,
       page: () => const QuestionPage(),
       binding: QuestionBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.login,
+      page: () => LoginPage(),
     ),
   ];
 }
