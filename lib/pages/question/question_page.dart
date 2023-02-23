@@ -46,7 +46,7 @@ class QuestionPage extends GetView<QuestionController> {
             IconButton(
               icon: const Icon(Icons.history),
               onPressed: () => {
-                Get.to(AppRoutes.login),
+                Get.toNamed(AppRoutes.login),
               },
             ),
           ],
