@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:ham_tools/request/vika_response.dart';
+import 'package:ham_tools/request/vika_req_res.dart';
 
 class VikaDataConnect extends GetConnect {
   final String authorization;
@@ -50,14 +51,16 @@ class VikaDataConnect extends GetConnect {
 
     Response response = await post(
       url,
-      body,
+      jsonEncode(body),
       headers: headers,
       query: query,
       contentType: contentType,
     );
     log(response.bodyString ?? "{}");
 
-    if (response.statusCode == 200 && response.bodyString != null) {
+    if ((response.statusCode == HttpStatus.ok ||
+            response.statusCode == HttpStatus.created) &&
+        response.bodyString != null) {
       return VikaBaseResponse.fromJson(jsonDecode(response.bodyString ?? "{}"))
           .data;
     }

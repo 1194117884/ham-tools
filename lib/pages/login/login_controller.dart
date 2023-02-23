@@ -5,8 +5,9 @@ class LoginController extends GetxController {
   String text = "aaaa";
 
   void change() {
-    LoginData().register(name: "张三丰").then((user) {
-      text = 'name';
+    LoginData().register().then((user) {
+      text = user.name;
+
       update();
     });
   }

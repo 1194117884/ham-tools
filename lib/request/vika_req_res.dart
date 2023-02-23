@@ -46,6 +46,41 @@ class VikaPage {
       };
 }
 
+class VikaAddRecordReq {
+  String fieldKey = "name";
+  final List<VikaAddRecordReqField> records;
+
+  VikaAddRecordReq(this.records, this.fieldKey);
+
+  Map<String, dynamic> toJson() => {
+        'records': records,
+        'fieldKey': fieldKey,
+      };
+}
+
+class VikaAddRecordReqField {
+  Map<String, dynamic> fields;
+
+  VikaAddRecordReqField(this.fields);
+
+  Map<String, dynamic> toJson() => {
+        'fields': fields,
+      };
+}
+
+class VikaAddRecordRes {
+  final List<dynamic> records;
+
+  VikaAddRecordRes(this.records);
+
+  VikaAddRecordRes.fromJson(Map<String, dynamic> json)
+      : records = json['records'] ?? [];
+
+  Map<String, dynamic> toJson() => {
+        'records': records,
+      };
+}
+
 class VikaGetFields {
   final List<VikaField> fields;
 

@@ -30,23 +30,23 @@ class VikaField {
 class VikaRecord {
   final String recordId;
   final int createdAt;
-  final int updateAt;
+  final int updatedAt;
   final Map<String, dynamic> fields;
 
-  VikaRecord(this.recordId, this.createdAt, this.updateAt, this.fields);
+  VikaRecord(this.recordId, this.createdAt, this.updatedAt, this.fields);
 
   static final blank = VikaRecord("", 0, 0, {});
 
   VikaRecord.fromJson(Map<String, dynamic> json)
       : recordId = json['recordId'] ?? "",
         createdAt = json['createdAt'] ?? 0,
-        updateAt = json['updateAt'] ?? 0,
+        updatedAt = json['updatedAt'] ?? 0,
         fields = json['fields'] ?? {};
 
   Map<String, dynamic> toJson() => {
         'recordId': recordId,
         'createdAt': createdAt,
-        'updateAt': updateAt,
+        'updatedAt': updatedAt,
         'fields': fields,
       };
 }

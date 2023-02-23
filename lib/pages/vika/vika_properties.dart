@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:yaml/yaml.dart';
 
 class VikaProperties {
-
   static const String yamlPath = "assets/properties/vika.yml";
 
   final Map<String, dynamic> properties;
