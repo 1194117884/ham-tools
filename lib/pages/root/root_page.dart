@@ -14,25 +14,25 @@ class RootPage extends StatelessWidget {
       return Scaffold(
         body: IndexedStack(
           index: controller.currentTab.value,
-          children: [
-            const HomePage(),
-            const ExaminationPage(),
-            const UserPage(),
+          children: const [
+            HomePage(),
+            ExaminationPage(),
+            UserPage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.currentTab.value,
           onTap: controller.setBar,
-          items: [
-            const BottomNavigationBarItem(
+          items: const [
+            BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: '首页',
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(Icons.business),
-              label: '考场',
+              label: '考试',
             ),
-            const BottomNavigationBarItem(
+            BottomNavigationBarItem(
               icon: Icon(Icons.person),
               label: '个人中心',
             ),

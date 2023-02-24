@@ -7,12 +7,23 @@ import 'package:ham_tools/pojos/vika_data.dart';
 import '../../pojos/user.dart';
 
 class LoginData {
+  Map<String, dynamic> vikaProps = VikaProperties().properties;
+
+
+  /// find user
+  Future<User> find(String userId) async {
+    final String datasheetId = vikaProps['vika.user-db.datasheetId'];
+
+    VikaRecord record = await VikaData().findRecord(datasheetId, userId);
+
+    return User.fromJson(record.fields);
+  }
+
   /// register user
   Future<User> register({String? name}) async {
     name ??= 'cqcq_${Random.secure().nextInt(999999)}';
 
-    final String datasheetId =
-        VikaProperties().properties['vika.user-db.datasheetId'];
+    final String datasheetId = vikaProps['vika.user-db.datasheetId'];
 
     Map<String, dynamic> body = {
       "name": name,

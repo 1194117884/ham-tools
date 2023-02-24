@@ -66,4 +66,6 @@ class VikaDataConnect extends GetConnect {
     }
     return {};
   }
+
+
 }

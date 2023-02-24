@@ -13,7 +13,6 @@ class VikaData extends VikaDataConnect {
   Future<VikaRecord> addRecord(
       String datasheetId, Map<String, dynamic> fields) async {
     final String url = properties['vika.url.record.post'];
-    final String datasheetId = properties['vika.user-db.datasheetId'];
 
     Map<String, dynamic> result = await postRequest(
         url.replaceAll("{datasheetId}", datasheetId),
@@ -30,6 +29,23 @@ class VikaData extends VikaDataConnect {
     VikaAddRecordRes res = VikaAddRecordRes.fromJson(result);
     if (res.records.isNotEmpty) {
       return VikaRecord.fromJson(res.records.first);
+    }
+    return VikaRecord.blank;
+  }
+
+  /// find record
+  Future<VikaRecord> findRecord(String datasheetId, String recordId) async {
+    final String url = properties['vika.url.record.get'];
+
+    Map<String, dynamic> result =
+        await getRequest(url.replaceAll("{datasheetId}", datasheetId), query: {
+      "recordIds": recordId,
+      "fieldKey": "name",
+    });
+
+    VikaFindRecordsPage page = VikaFindRecordsPage.fromJson(result);
+    if (page.records.isNotEmpty) {
+      return VikaRecord.fromJson(page.records.first);
     }
     return VikaRecord.blank;
   }

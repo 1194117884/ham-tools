@@ -1,5 +1,3 @@
-import '../pojos/vika_data.dart';
-
 class VikaBaseResponse {
   final bool success;
   final int code;
@@ -22,17 +20,17 @@ class VikaBaseResponse {
       };
 }
 
-class VikaPage {
+class VikaFindRecordsPage {
   final int total;
   final int pageNum;
   final int pageSize;
   final List<dynamic> records;
 
-  VikaPage(this.total, this.pageNum, this.pageSize, this.records);
+  VikaFindRecordsPage(this.total, this.pageNum, this.pageSize, this.records);
 
-  static final blank = VikaPage(0, 1, 10, []);
+  static final blank = VikaFindRecordsPage(0, 1, 10, []);
 
-  VikaPage.fromJson(Map<String, dynamic> json)
+  VikaFindRecordsPage.fromJson(Map<String, dynamic> json)
       : total = json['total'],
         pageNum = json['pageNum'],
         pageSize = json['pageSize'],
@@ -78,18 +76,5 @@ class VikaAddRecordRes {
 
   Map<String, dynamic> toJson() => {
         'records': records,
-      };
-}
-
-class VikaGetFields {
-  final List<VikaField> fields;
-
-  VikaGetFields(this.fields);
-
-  VikaGetFields.fromJson(Map<String, dynamic> json)
-      : fields = json['fields'] ?? [];
-
-  Map<String, dynamic> toJson() => {
-        'fields': fields,
       };
 }
