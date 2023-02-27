@@ -71,7 +71,10 @@ class QuestionPage extends GetView<QuestionController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: controller.collect,
+                      onTap: () {
+                        controller.readAllQuestionFromLocalFile(
+                            "assets/questions/V20211022/a_class.txt");
+                      },
                       child: Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
